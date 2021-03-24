@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block head %}
+<style>
+    body {background-image: url("/static/homegarden5.jpg");
+        text-align: center;}
+    h1   {color: black;
+        font-size: 80px;}
+    p{
+        font-size: 25px;
+    }
+    form{
+        text-align: left;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1>Garden Warden</h1>
+<form method="POST" action="/abc">
+    <p>Username</p>
+    <input type="text" name="u_name"/><br><br>
+    <p>Password</p>
+    <input type="password" name="u_pass"/><br><br>
+    <button type="submit" name="Signup">Signup</button>
+    <button type="submit" name="Login">Login</button>
+</form>
+{% endblock %}
