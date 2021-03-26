@@ -1,31 +1,45 @@
 from flask import Flask,render_template,request
-from flask_mysqldb import MySQL
+import sqlite3 as sql
+import requests
 app = Flask(__name__)
-
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'srisabari@%'
-app.config['MYSQL_PASSWORD'] = 'sabaharibala'
-app.config['MYSQL_DB'] = 'mysql'
-
-mysql = MySQL(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-@app.route('/abc',methods=['GET','POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-     if request.method == "POST":
-         Username = request.form['u_name']
-         Password = request.form['u_pass']
-         cur = mysql.connection.cursor()
-         cur.execute("INSERT INTO MyUsers(Username, Password) VALUES (%s, %s)", (Username, Password))
-         mysql.connection.commit()
-         cur.close()
-         return 'success'
-     return render_template('testing.html')
+    return render_template('testing.html')
 
-@app.route('/bcd',methods=['GET','POST'])
+@app.route('/addrec',methods = ['POST', 'GET'])
+def addrec():
+   if request.method == 'POST':
+      try:
+         print(request.form)
+         uname = request.form['u_name']
+         uage = request.form['u_age']
+         uloc = request.form['u_loc']
+         uemail = request.form['u_email']
+         upass = request.form['u_pass']
+         
+         with sql.connect("mydatabase.db") as con:
+            cur = con.cursor()
+            
+            cur.execute("INSERT INTO mySignup (name,age,location,email,password) VALUES (?,?,?,?,?)",(uname,uage,uloc,uemail,upass) )
+            
+            con.commit()
+            msg = "Record successfully added" 
+            
+            
+      except:
+         con.rollback()
+         msg = "error in insert operation"
+      
+      finally:
+         con.close()
+         return render_template("result.html",msg = msg)
+         
+@app.route('/login',methods=['GET','POST'])
 def login():
     return render_template('Drop.html')
 

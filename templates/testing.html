@@ -1,40 +1,98 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>Garden Warden</title>
         <style>
-            body {background-image: url("/static/homegarden8.jpeg");
-            }
-            h1 {
-            color: rgb(0, 37, 0);
-            text-align: center;
-            font-size: 70px;
-            }
-            form {
-            color: black;
-            text-align: left;
-            }
-            p{
-                font-size: 20px;
-            }
+            body {
+                background-image:linear-gradient(#9de794,#39742f) ;
+}
+
+.form-container {
+  /* margin: 100px auto; */
+  padding: 30px;
+  max-width: 350px;
+  background: rgb(160, 207, 141);
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 100px auto;
+  max-width: 350px;
+  background: white; 
+  box-sizing: border-box;
+}
+
+.form-container .head {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Inputs {
+  padding-top: 50px;
+}
+
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  line-height: 30px;
+}
+
+input {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 5px;
+  background: #3fb996;
+  border: hidden;
+  color: white;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+.signup a {
+  color: #3fb996;
+}
         </style>
     </head>
     <body>
-        <h1>Garden Warden</h1>
-        <form action="/bcd" method="POST">
-            <p><h2>Username:-</h2></p>
-            <input type="text" name="Name"/>
-            <p><h2>Age:-</h2></p>
-            <input type="number" name="Age"/>
-            <p><h2>Location:-</h2></p>
-            <input type="text" name="Location"/>
-            <p><h2>E-Mail:-</h2></p>
-            <input type="text" name="u_name"/>
-            <p><h2>Confirm E-Mail:-</h2></p>
-            <input type="text" name="Confirm_E-mail"/>
-            <p><h2>Password:-</h2></p>
-            <input type="password" name="u_pass"/>
-            <input type="submit" name="Submit"/>
-        </form>
-    </body>
+        <div class="container">
+          <div class="form-container">
+            <div class="head">
+              <h3> Welcome to      <br>Garden Warden &#128525;</h3>
+              <p>It's free and only takes a minute</p>
+            </div>
+            <form class="Inputs" action="/addrec" method="POST">
+              <label for="first">Name</label>
+              <input type="text" id="first" name="u_name" placeholder="Eg.Alis"/>
+              <label for="age">Age</label>
+              <input type="number" id="age" name="u_age" placeholder="Eg.10"/>
+              <label for="location">Location</label>
+              <input type="text" id="location" name="u_loc" placeholder="Eg.London"/>
+              <label for="email">Email</label>
+              <input type="text" id="email" name="u_email" placeholder="Eg.abc@gmail.com"/>
+              <label for="pswd">Password</label>
+              <input type="password" id="pswd" name="u_pass" />
+              <button type="submit" name="Submit">Sign Up</button>
+            </form>
+          Already have a account ? <a href="/">Login Here</a>
+        </div>
+        </div>
+      </body>
 </html>
