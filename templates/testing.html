@@ -3,7 +3,7 @@
     <head>
         <title>Garden Warden</title>
         <style>
-            body {background-image: url("/static/homegarden5.jpg");
+            body {background-image: url("/static/homegarden8.jpeg");
             }
             h1 {
             color: rgb(0, 37, 0);
@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>Garden Warden</h1>
-        <form>
+        <form action="/bcd" method="POST">
             <p><h2>Username:-</h2></p>
             <input type="text" name="Name"/>
             <p><h2>Age:-</h2></p>
@@ -29,11 +29,11 @@
             <p><h2>Location:-</h2></p>
             <input type="text" name="Location"/>
             <p><h2>E-Mail:-</h2></p>
-            <input type="text" name="E-mail"/>
+            <input type="text" name="u_name"/>
             <p><h2>Confirm E-Mail:-</h2></p>
             <input type="text" name="Confirm_E-mail"/>
             <p><h2>Password:-</h2></p>
-            <input type="password" name="password"/>
+            <input type="password" name="u_pass"/>
             <input type="submit" name="Submit"/>
         </form>
     </body>
