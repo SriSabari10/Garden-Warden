@@ -41,7 +41,7 @@ def addrec():
          
 @app.route('/login',methods=['GET','POST'])
 def login():
-    return render_template('Drop.html')
+    return render_template('testing2.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
