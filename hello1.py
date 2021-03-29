@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/abc', methods=['GET', 'POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     return render_template('testing.html')
 
@@ -22,10 +22,10 @@ def addrec():
          uemail = request.form['u_email']
          upass = request.form['u_pass']
          
-         with sql.connect("mydatabase.db") as con:
+         with sql.connect("newRegister.db") as con:
             cur = con.cursor()
             
-            cur.execute("INSERT INTO mySignup (name,age,location,email,password) VALUES (?,?,?,?,?)",(uname,uage,uloc,uemail,upass) )
+            cur.execute("INSERT INTO newSignup (name,age,location,email,password) VALUES (?,?,?,?,?)",(uname,uage,uloc,uemail,upass) )
             
             con.commit()
             msg = "Record successfully added" 
@@ -39,9 +39,9 @@ def addrec():
          con.close()
          return render_template("result.html",msg = msg)
 
-@app.route('/bcd',methods=['GET','POST'])
+@app.route('/login',methods=['GET','POST'])
 def login():
-    return render_template('Drop.html')
+    return render_template('testing2.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
