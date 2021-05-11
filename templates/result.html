@@ -1,9 +1,28 @@
-<!doctype html>
 <html>
+   <head>
+      <style>
+         nav{
+            text-align: right;
+            margin: 20px auto;
+         }
+         .container {
+            padding-top: 10%;
+            padding-bottom: 10%;
+            margin: 100px auto;
+            max-width: 350px;
+            background: rgb(166, 209, 87); 
+            box-sizing: border-box;
+            text-align: center;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+      </style>
+   </head>
    <body>
-   
-      result of addition : {{ msg }}
-      <h2><a href = "\">go back to home page</a></h2>
-      
+   <nav>
+      <a href="\">Go Home</a>
+   </nav>
+   <div class="container">
+      {{ msg }}
+   </div>   
    </body>
 </html>

@@ -1,5 +1,26 @@
 {% extends 'base.html'%}
 {% block head %}
+<!-- <script type="text/javascript">
+    function ValidateEmail()
+{
+    console.log('validate called');
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const aa=document.getElementById("email").value;
+    const bb=document.getElementById("pass").value;
+    if(value.match(mailformat))
+    {
+        alert("Valid email address!");
+        
+      return true;
+    }
+    else
+    {
+    alert("You have entered an invalid email address!");
+    
+    return false;
+    }
+}
+</script> -->
 <style>
     body {background-image:linear-gradient(#57c84d,#83d475) ;
     background-size: auto;
@@ -13,7 +34,7 @@
         margin-left: 90px;
         margin-top: 10px;
     }
-    input[type=text],input[type=password]{
+    input[type=text],input[type=password],[type=email]{
         margin-top: 30px;
         margin-left:45px;
         padding-bottom: 5px;
@@ -38,12 +59,11 @@
 {% endblock %}
 {% block body %}
 <h1>Garden Warden</h1>
-<img src="" width="" height="" class="">
 <div class="container">
 <form method="POST" action="{{ url_for('login')}}">
-    <input type="text" name="u_name" placeholder="Your name"/><br><br>
-    <input type="password" name="u_pass" placeholder="Enter your password"/><br><br>
-    <a href="/login"><button type="submit" name="Login">Login</button></a>
+    <input type="email" name="u_email" id="email" placeholder="Your Email-id" oninvalid="alert('Please Enter your email!');" required/><br><br>
+    <input type="password" name="u_pass" id="pass" placeholder="Enter your password" oninvalid="alert('Please Enter the Password!');" required/><br><br>
+    <a href="/login"><button type="submit" name="Login" onclick="ValidateEmail()">Login</button></a>
 </form>
 <p>I am a new User!!!..<a href="/signup">Register Now</a></p>
 </div>
